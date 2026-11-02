@@ -17,11 +17,6 @@ FORMATO_BR = "%d/%m/%Y"                 # ex.: 12/10/2025
 
 
 def ler_csv(caminho):
-    """Lê o CSV com csv.DictReader.
-
-    Cada linha vira um dicionário {coluna: valor}.
-    Todos os valores chegam como TEXTO (str), mesmo números e datas.
-    """
     with open(caminho, newline="", encoding="utf-8") as arquivo:
         leitor = csv.DictReader(arquivo, delimiter=",")
         return list(leitor)
@@ -60,18 +55,10 @@ def padronizar_canal(original):
     return canal, "igual"
 
 def validar_numeros(registro):
-    """Valida quantidade e preco_unitario de UM registro.
-
-    Regras:
-    - quantidade: precisa ser inteiro maior que zero.
-    - preco_unitario: precisa estar preenchido e não ser negativo.
-
-    Retorna a lista de campos com problema, ex.: ["quantidade"].
-    Lista vazia = registro válido.
-    """
+    """Valida quantidade e preco_unitario de um registro."""
     problemas = []
 
-    # quantidade: converte de texto para inteiro; se não der, é problema
+    # quantidade: converte de texto para inteito; se não der, é problema
     try:
         quantidade = int(registro["quantidade"].strip())
         if quantidade <= 0:
@@ -94,11 +81,7 @@ def validar_numeros(registro):
 
 #sprint 4
 def converter_data(texto):
-    """Converte data_venda (texto) para datetime e extrai as partes.
-
-    Retorna um dicionário com ano, mes, dia, hora, data_br e ano_mes.
-    Se a data for vazia ou inválida, retorna None (NÃO inventa data).
-    """
+    """Converte data_venda (texto) para datetime e extrai as partes."""
     try:
         data = datetime.strptime(texto.strip(), FORMATO_ENTRADA)
     except ValueError:
@@ -121,11 +104,7 @@ def entrega_vazia(registro):
 
 def testar_hipotese_entrega(registros):
     """Hipótese: TODO pedido com data_entrega vazia está 'Cancelado'.
-
-    Retorna dois grupos de pedidos sem entrega:
-    (cancelados, outros_status).
-    Se 'outros_status' tiver algum pedido, a hipótese é FALSA.
-    """
+"""
     cancelados = []
     outros_status = []
     for reg in registros:
@@ -139,8 +118,6 @@ def testar_hipotese_entrega(registros):
 
 def contar_por_canal(registros):
     """Conta pedidos por canal padronizado (todos os status).
-
-    Retorna (contagem, excluidos). Excluídos = canal não reconhecido.
     """
     contagem = Counter()
     excluidos = 0
@@ -154,11 +131,7 @@ def contar_por_canal(registros):
 
 
 def contar_por_ano_mes(registros):
-    """Conta pedidos por 'AAAA-MM' usando data_venda válida (todos os status).
-
-    Usa ano-mês (e não só mês) para NÃO misturar 2024 com 2025.
-    Retorna (contagem, excluidos). Excluídos = data inválida ou vazia.
-    """
+    """Conta pedidos por 'AAAA-MM' usando data_venda válida """
     contagem = Counter()
     excluidos = 0
     for reg in registros:
