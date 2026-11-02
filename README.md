@@ -1,6 +1,7 @@
 # Festa em Cena – Análise de Pedidos de Halloween
 
-Mini-Projeto Avaliativo – Machine Learning e Visão Computacional (Turma 04) – Módulo 1, Semana 07.
+Mini-Projeto Avaliativo – Machine Learning e Visão Computacional 
+Estudante: João Bacar Baldé
 
 ## 1. Descrição do Projeto
 
