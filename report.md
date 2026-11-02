@@ -38,4 +38,3 @@
 - 2025-11: 182
 - Excluídos (data inválida): 4
 
-> Estas contagens representam pedidos registrados, não receita nem vendas concluídas.
