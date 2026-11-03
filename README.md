@@ -83,3 +83,5 @@ Antes de usar dados em Machine Learning é preciso verificar ausentes, textos in
 qualidade dos dados influencia as análises e os modelos (lixo entra, lixo sai). Limpeza não garante bons modelos:
 também importam representatividade, escolha do modelo e avaliação, para evitar overfitting e underfitting.
 Aqui, por exemplo, a hipótese "sem entrega = cancelado" parecia razoável, mas os dados a contradisseram.
+
+link do video explicativo  https://www.youtube.com/watch?v=M6jfYDKEU_k
